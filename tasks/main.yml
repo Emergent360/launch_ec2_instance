@@ -20,14 +20,14 @@
 
 - name: Select Public SG
   set_fact:
-    group_id: "{{ group_info.security_groups | json_query(group_query) }}"
+    group_id: "{{ group_info.security_groups | json_query(group_query) | string }}"
   vars:
     group_query: "[?group_name=='{{ ec2_name_prefix }}-Public-SG'].group_id"
   when: tier == "Public"
 
 - name: Select Private SG
   set_fact:
-    group_id: "{{ group_info.security_groups | json_query(group_query) }}"
+    group_id: "{{ group_info.security_groups | json_query(group_query) | string }}"
   vars:
     group_query: "[?group_name=='{{ ec2_name_prefix }}-Private-SG'].group_id"
   when: tier == "Private"
@@ -84,3 +84,6 @@
   loop_control:
     label: "{{ item }}"
   register: ec2
+
+- debug:
+    var: ec2
