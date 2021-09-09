@@ -84,6 +84,3 @@
   loop_control:
     label: "{{ item }}"
   register: ec2
-
-- debug:
-    var: ec2
