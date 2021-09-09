@@ -67,9 +67,6 @@
     vpc_subnet_id: "{{ subnet_id }}"
     wait: yes
     wait_timeout: 300
-    exact_count: 1
-    count_tag:
-      Name: "{{ ec2_name_prefix }} {{ instance_name }} {{ item }}"
     instance_tags:
       Role: "{{ instance_role }}"
       Platform: "{{ instance_platform }}"
