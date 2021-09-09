@@ -58,12 +58,12 @@
   when: found_amis.images is defined
 
 - name: "Start instances."
-  ec2:
+  ec2_instance:
     key_name: "{{ ec2_name_prefix }}-key"
     region: "{{ ec2_region }}"
-    image: "{{ target_ami.image_id }}"
+    image_id: "{{ target_ami.image_id }}"
     instance_type: "{{ instance_type }}"
-    group_id: "{{ group_id }}"
+    security_group: "{{ group_id }}"
     vpc_subnet_id: "{{ subnet_id }}"
     wait: yes
     wait_timeout: 300
