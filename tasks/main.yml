@@ -77,9 +77,9 @@
       Tier: "{{ tier }}"
     user_data: "{{ user_data }}"
     volumes:
-    - device_name: /dev/sda1
+    - device_name: "{{ vol_device_name }}"
       ebs:
-        volume_size: 400
+        volume_size: "{{ ebs_volume_size }}"
   loop: "{{ range(1, instance_count +1)|list }}"
   loop_control:
     label: "{{ item }}"
