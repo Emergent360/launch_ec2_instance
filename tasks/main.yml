@@ -70,7 +70,7 @@
     tags:
       Role: "{{ instance_role }}"
       Platform: "{{ instance_platform }}"
-      Name: "{{ ec2_name_prefix }} {{ instance_name }} {{ item }}"
+      Name: "{{ ec2_name_prefix }} {{ tier }} {{ instance_name }} {{ item }}"
       Inventory: "{{ ec2_name_prefix }}"
       Stage: "instantiated"
       Zone: "{{ zone }}"
