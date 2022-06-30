@@ -58,7 +58,7 @@
   when: found_amis.images is defined
 
 - name: "Start instances."
-  community.aws.ec2_instance:
+  amazon.aws.ec2_instance:
     key_name: "{{ ec2_name_prefix }}-key"
     region: "{{ ec2_region }}"
     image_id: "{{ target_ami.image_id }}"
